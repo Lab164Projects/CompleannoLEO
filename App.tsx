@@ -59,12 +59,16 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-300 via-pink-100 to-yellow-100 text-gray-800 relative overflow-hidden font-sans">
 
-      {/* Sfondo animato con palloncini colorati carichi */}
+      {/* Sfondo animato con palloncini colorati carichi - Distribuzione migliorata */}
       <FloatingBalloon color="bg-red-600" delay="0s" left="5%" />
       <FloatingBalloon color="bg-blue-600" delay="3s" left="20%" />
-      <FloatingBalloon color="bg-yellow-500" delay="1.5s" left="45%" />
-      <FloatingBalloon color="bg-purple-600" delay="4s" left="70%" />
-      <FloatingBalloon color="bg-green-600" delay="0.8s" left="90%" />
+      <FloatingBalloon color="bg-pink-500" delay="5s" left="35%" />
+      <FloatingBalloon color="bg-yellow-500" delay="1.5s" left="50%" />
+      <FloatingBalloon color="bg-orange-500" delay="7s" left="65%" />
+      <FloatingBalloon color="bg-purple-600" delay="4s" left="80%" />
+      <FloatingBalloon color="bg-green-600" delay="0.8s" left="92%" />
+      <FloatingBalloon color="bg-teal-500" delay="2.5s" left="28%" />
+      <FloatingBalloon color="bg-indigo-600" delay="6s" left="60%" />
 
       <main className="max-w-md mx-auto px-4 py-8 flex flex-col items-center justify-center min-h-screen relative z-10">
         <header className="text-center mb-6 z-20 animate-in fade-in slide-in-from-top duration-1000">

@@ -9,20 +9,33 @@ export const AIWishGenerator: React.FC<{ onBack: () => void }> = ({ onBack }) =>
 
   const generateWish = async () => {
     setLoading(true);
+    const fallbackWishes = [
+      "Auguri Leo! Sei un vero supereroe! 🦸‍♂️🎂",
+      "5 anni di pura magia! Buon compleanno ometto! ✨🦁",
+      "Un salto gigante per un grande ometto! Auguri Leo! 🚀🌟",
+      "Buon compleanno! Divertiti un mondo oggi! 🎈🤩",
+      "Leo, oggi sei tu il re della festa! 👑🎉",
+      "Tanti auguri al pirata più coraggioso! 🏴‍☠️🎂",
+      "Wow! 5 anni sono tantissimi! Auguri grande Leo! 🌈🔥",
+      "Leo, sei spaziale! Buon compleanno! 🌌🎈"
+    ];
+
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+      const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+      if (!apiKey) throw new Error("API Key missing");
+
+      const ai = new GoogleGenAI({ apiKey });
       const response = await ai.models.generateContent({
-        model: 'gemini-3-flash-preview',
-        contents: "Scrivi un augurio di compleanno SUPER CORTO e DIVERTENTE per Leonardo che compie 5 ANNI. Festa l'8 mattina alla ludoteca Baby World. Massimo 10 parole. Deve essere simpatico, leggibile al volo e allegro. Usa 2 emoji. Parla del fatto che è un grande ometto!",
+        model: 'gemini-2.0-flash-exp', // Updated to a more stable model name
+        contents: "Scrivi un augurio di compleanno SUPER CORTO (max 10 parole) e DIVERTENTE per Leonardo che compie 5 ANNI. Usa 2 emoji. Parla del fatto che è un grande ometto!",
         config: {
-          systemInstruction: "Sei un mago che scrive auguri lampo formato WhatsApp. Sii estremamente sintetico.",
           temperature: 0.9,
         }
       });
-      setWish(response.text?.trim() || "Magia in arrivo, riprova!");
+      setWish(response.text?.trim() || fallbackWishes[Math.floor(Math.random() * fallbackWishes.length)]);
     } catch (error) {
-      console.error(error);
-      setWish("Ops, scintille esaurite!");
+      console.error("AI service error, using fallback:", error);
+      setWish(fallbackWishes[Math.floor(Math.random() * fallbackWishes.length)]);
     } finally {
       setLoading(false);
     }
