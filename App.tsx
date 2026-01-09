@@ -59,7 +59,7 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-300 via-pink-100 to-yellow-100 text-gray-800 relative overflow-hidden font-sans">
 
-      {/* Sfondo animato con palloncini colorati carichi - Distribuzione migliorata */}
+      {/* Sfondo animato con palloncini colorati carichi - Distribuzione migliorata e più centrale */}
       <FloatingBalloon color="bg-red-600" delay="0s" left="5%" />
       <FloatingBalloon color="bg-blue-600" delay="3s" left="20%" />
       <FloatingBalloon color="bg-pink-500" delay="5s" left="35%" />
@@ -69,6 +69,9 @@ const App: React.FC = () => {
       <FloatingBalloon color="bg-green-600" delay="0.8s" left="92%" />
       <FloatingBalloon color="bg-teal-500" delay="2.5s" left="28%" />
       <FloatingBalloon color="bg-indigo-600" delay="6s" left="60%" />
+      <FloatingBalloon color="bg-rose-500" delay="1s" left="42%" />
+      <FloatingBalloon color="bg-amber-500" delay="4.5s" left="55%" />
+      <FloatingBalloon color="bg-cyan-500" delay="8s" left="48%" />
 
       <main className="max-w-md mx-auto px-4 py-8 flex flex-col items-center justify-center min-h-screen relative z-10">
         <header className="text-center mb-6 z-20 animate-in fade-in slide-in-from-top duration-1000">
@@ -141,9 +144,9 @@ const App: React.FC = () => {
       <style>{`
         @keyframes float-up {
           0% { transform: translateY(0) rotate(0deg); opacity: 0; }
-          10% { opacity: 0.8; }
-          90% { opacity: 0.8; }
-          100% { transform: translateY(-130vh) rotate(45deg); opacity: 0; }
+          5% { opacity: 1; }
+          95% { opacity: 1; }
+          100% { transform: translateY(-160vh) rotate(45deg); opacity: 0; }
         }
         .animate-float-up {
           animation: float-up 10s linear infinite;
