@@ -81,9 +81,9 @@ const App: React.FC = () => {
             <div className="space-y-6 animate-in fade-in slide-in-from-bottom-8 duration-700">
               <InvitationCard
                 onPhotoClick={triggerCelebration}
-                photoUrl="./leonardo_cropped.jpg"
+                photoUrl="/leonardo_cropped.jpg"
               />
-              <PartyInfo logoUrl="./logo_babyworld.png" />
+              <PartyInfo logoUrl="/logo_babyworld.png" />
 
               <hr className="border-gray-200 opacity-40 mx-8" />
 
