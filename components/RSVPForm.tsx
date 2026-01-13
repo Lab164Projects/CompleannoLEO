@@ -16,8 +16,8 @@ export const RSVPForm: React.FC = () => {
   };
 
   return (
-    <div className="bg-yellow-50/50 p-6 rounded-[2rem] border-2 border-yellow-200">
-      <div className="flex items-center gap-2 mb-4 text-yellow-700">
+    <div className="bg-[#E6F7FF] p-6 rounded-[2rem] border-2 border-[#00ADEF]">
+      <div className="flex items-center gap-2 mb-4 text-[#004A99]">
         <UserCheck size={20} />
         <h3 className="font-birthday text-xl">Vieni alla festa?</h3>
       </div>
@@ -26,8 +26,8 @@ export const RSVPForm: React.FC = () => {
         <div className="text-center py-4 animate-in zoom-in duration-300">
           <p className="text-green-600 font-bold text-lg">Grazie {name}! 🎉</p>
           <p className="text-gray-500 text-sm italic">Leonardo non vede l'ora di vederti!</p>
-          <button 
-            onClick={() => setSent(false)} 
+          <button
+            onClick={() => setSent(false)}
             className="mt-4 text-xs text-blue-500 underline"
           >
             Modifica
@@ -40,7 +40,7 @@ export const RSVPForm: React.FC = () => {
             placeholder="Nome amichetto/a"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full px-4 py-3 rounded-xl border-2 border-white bg-white/80 focus:border-yellow-400 outline-none transition-all placeholder:text-gray-300"
+            className="w-full px-4 py-3 rounded-xl border-2 border-white bg-white/80 focus:border-[#00ADEF] outline-none transition-all placeholder:text-gray-300"
             required
           />
           <input
@@ -48,12 +48,12 @@ export const RSVPForm: React.FC = () => {
             placeholder="Cognome"
             value={surname}
             onChange={(e) => setSurname(e.target.value)}
-            className="w-full px-4 py-3 rounded-xl border-2 border-white bg-white/80 focus:border-yellow-400 outline-none transition-all placeholder:text-gray-300"
+            className="w-full px-4 py-3 rounded-xl border-2 border-white bg-white/80 focus:border-[#00ADEF] outline-none transition-all placeholder:text-gray-300"
             required
           />
           <button
             type="submit"
-            className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-xl shadow-md flex items-center justify-center gap-2 transition-transform active:scale-95"
+            className="w-full bg-[#F7941D] hover:bg-[#D67E1A] text-white font-bold py-3 rounded-xl shadow-md flex items-center justify-center gap-2 transition-transform active:scale-95 border-b-4 border-[#A16113]"
           >
             Conferma Presenza <Send size={16} />
           </button>

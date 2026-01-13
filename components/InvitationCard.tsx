@@ -38,28 +38,20 @@ export const InvitationCard: React.FC<InvitationCardProps> = ({ photoUrl, onPhot
         </div>
 
         {/* IN ALTO A SINISTRA: Badge dei 5 Anni */}
-        <div className="absolute -top-4 -left-6 bg-yellow-400 text-yellow-900 font-black px-5 py-3 rounded-full shadow-xl z-20 animate-bounce border-4 border-white rotate-[-15deg] flex items-center gap-2">
-          <span className="text-3xl font-birthday leading-none">5</span>
-          <Star size={20} fill="currentColor" />
-        </div>
-
-        {/* IN BASSO A DESTRA: Badge "Super Ometto" Spaziale */}
-        <div className="absolute -bottom-6 -right-4 w-32 h-32 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-3xl p-1 shadow-2xl border-4 border-white z-20 transform rotate-6 transition-all group-hover:rotate-0 group-hover:scale-110 flex items-center justify-center">
-          <div className="bg-white/10 w-full h-full rounded-2xl flex flex-col items-center justify-center text-white p-2">
-            <Rocket size={32} className="mb-1 animate-float text-yellow-300" />
-            <div className="text-[10px] font-black uppercase tracking-widest text-blue-100 mb-1">Super Leo</div>
-            <div className="flex gap-1">
-              <Zap size={10} fill="currentColor" className="text-yellow-400" />
-              <Zap size={10} fill="currentColor" className="text-yellow-400" />
-              <Zap size={10} fill="currentColor" className="text-yellow-400" />
-            </div>
-          </div>
-        </div>
+        <div className="absolute inset-0 rounded-full border-4 border-[#F7941D] opacity-20 animate-ping pointer-events-none" />
+        <img src={photoUrl} alt="Leonardo" className="w-44 h-44 rounded-full object-cover shadow-inner" />
       </div>
 
-      <div className="mt-12 text-center">
-        <h2 className="text-5xl font-refined text-blue-600 mb-2 leading-none">Evviva Leo!</h2>
-        <p className="text-gray-400 font-bold uppercase tracking-[0.4em] text-[10px] animate-pulse">Tocca la mia foto per festeggiare!</p>
+      <div className="mt-6 text-center">
+        <div className="inline-flex items-center gap-2 px-6 py-2 bg-gradient-to-r from-[#00ADEF] to-[#004A99] text-white rounded-full text-sm font-black shadow-lg mb-2">
+          <Star className="fill-yellow-400 text-yellow-400" size={16} />
+          <span>SUPER LEO</span>
+          <Star className="fill-yellow-400 text-yellow-400" size={16} />
+        </div>
+        <h2 className="text-4xl font-refined text-[#004A99] mb-1">Evviva Leo!</h2>
+        <p className="text-gray-500 font-bold text-xs uppercase tracking-widest">
+          Tocca la mia foto per festeggiarmi!
+        </p>
       </div>
     </div>
   );
