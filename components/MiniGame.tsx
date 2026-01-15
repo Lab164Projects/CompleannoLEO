@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, Trophy, Zap, Star, Medal } from 'lucide-react';
+import { ChevronLeft, Zap, Star } from 'lucide-react';
+import { FireworksCanvas } from './FireworksCanvas';
 
 interface Balloon {
   id: number;
@@ -72,7 +73,7 @@ export const MiniGame: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   };
 
   return (
-    <div className="relative h-[800px] w-full bg-gradient-to-b from-blue-400 to-indigo-800 rounded-[3.5rem] overflow-hidden border-8 border-white shadow-2xl touch-none">
+    <div className="relative h-[75vh] min-h-[500px] max-h-[800px] w-full bg-gradient-to-b from-blue-400 to-indigo-800 rounded-[3.5rem] overflow-hidden border-8 border-white shadow-2xl touch-none">
       <div className="absolute top-4 left-4 z-20 flex items-center gap-2">
         <button
           onClick={onBack}
@@ -91,19 +92,10 @@ export const MiniGame: React.FC<{ onBack: () => void }> = ({ onBack }) => {
 
       {victory ? (
         <div className="absolute inset-0 flex flex-col items-center justify-center bg-indigo-900/95 z-30 animate-in fade-in zoom-in duration-1000 overflow-hidden">
-          {/* Confetti & Fireworks Background */}
+          {/* Confetti & Fireworks Background - Canvas Based */}
+          <FireworksCanvas />
+
           <div className="absolute inset-0 pointer-events-none overflow-hidden">
-            {[...Array(20)].map((_, i) => (
-              <div key={`fw-${i}`} className="absolute animate-firework opacity-0"
-                style={{
-                  left: `${Math.random() * 80 + 10}%`,
-                  top: `${Math.random() * 60 + 10}%`,
-                  animationDelay: `${Math.random() * 2}s`,
-                  transform: `scale(${0.5 + Math.random()})`
-                }}>
-                <div className="w-2 h-2 bg-yellow-400 rounded-full shadow-[0_0_20px_#facc15]"></div>
-              </div>
-            ))}
             {[...Array(30)].map((_, i) => (
               <div key={`cf-${i}`} className="absolute w-3 h-3 rounded-sm animate-confetti-fall"
                 style={{
@@ -121,7 +113,7 @@ export const MiniGame: React.FC<{ onBack: () => void }> = ({ onBack }) => {
             <div className="w-[800px] h-[800px] bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 rounded-full animate-spin-slow blur-3xl"></div>
           </div>
 
-          {/* Immagine Vittoria Oscillante - Ridotta leggermente e margini ottimizzati */}
+          {/* Immagine Vittoria Oscillante */}
           <div className="relative z-10 animate-sway-heavy mb-2 mt-8">
             <img
               src="/LeonardoWin.png"
@@ -164,14 +156,6 @@ export const MiniGame: React.FC<{ onBack: () => void }> = ({ onBack }) => {
             }
             .animate-bounce-gentle {
                animation: bounce-gentle 2s ease-in-out infinite;
-            }
-            @keyframes firework {
-              0% { transform: scale(1); opacity: 1; box-shadow: 0 0 0 0px rgba(250, 204, 21, 0); }
-              50% { opacity: 1; }
-              100% { transform: scale(20); opacity: 0; box-shadow: 0 0 0 20px rgba(250, 204, 21, 0); }
-            }
-            .animate-firework {
-              animation: firework 1.5s ease-out infinite;
             }
             @keyframes confetti-fall {
               0% { transform: translateY(0) rotate(0deg); opacity: 1; }
