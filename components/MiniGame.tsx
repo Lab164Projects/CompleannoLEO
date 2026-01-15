@@ -37,7 +37,7 @@ export const MiniGame: React.FC<{ onBack: () => void }> = ({ onBack }) => {
           x: Math.random() * 80 + 10,
           y: 110,
           color: colors[Math.floor(Math.random() * colors.length)],
-          speed: (Math.random() * 1.5 + 1.5) * (1 + level * 0.45),
+          speed: (Math.random() * 1.0 + 1.0) * (1 + level * 0.2),
         },
       ]);
     }, spawnRate);

@@ -22,8 +22,8 @@ export const PartyInfo: React.FC<{ logoUrl?: string }> = ({ logoUrl }) => {
           <Clock size={24} />
         </div>
         <div>
-          <h3 className="text-xs font-black text-pink-400 uppercase">Orario Mattina</h3>
-          <p className="font-bold text-gray-800">Dalle 10:00 alle 13:00</p>
+          <h3 className="text-xs font-black text-pink-400 uppercase">Orario</h3>
+          <p className="font-bold text-gray-800">Alle 11:00</p>
         </div>
       </div>
 
