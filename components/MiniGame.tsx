@@ -72,7 +72,7 @@ export const MiniGame: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   };
 
   return (
-    <div className="relative h-[800px] w-full bg-gradient-to-b from-blue-400 to-indigo-800 rounded-[3.5rem] overflow-hidden border-8 border-white shadow-2xl">
+    <div className="relative h-[800px] w-full bg-gradient-to-b from-blue-400 to-indigo-800 rounded-[3.5rem] overflow-hidden border-8 border-white shadow-2xl touch-none">
       <div className="absolute top-4 left-4 z-20 flex items-center gap-2">
         <button
           onClick={onBack}
