@@ -1,12 +1,12 @@
+
 import React, { useState } from 'react';
 import { InvitationCard } from './components/InvitationCard';
-import { BlueyRunner } from './components/BlueyRunner';
-import { AIWishGenerator } from './components/AIWishGenerator';
+import { MiniGame } from './components/MiniGame';
 import { ConfettiCanvas } from './components/ConfettiCanvas';
 import { FireworksCanvas } from './components/FireworksCanvas';
 import { PartyInfo } from './components/PartyInfo';
 import { RSVPForm } from './components/RSVPForm';
-import { Heart, Star, Music, Gift, Camera, MapPin, Calendar, Clock, Sparkles } from 'lucide-react';
+import { Cake, Gift, Star, Heart } from 'lucide-react';
 
 const FloatingBalloon = ({ color, delay, left }: { color: string, delay: string, left: string }) => (
   <div
@@ -42,7 +42,7 @@ const FloatingBalloon = ({ color, delay, left }: { color: string, delay: string,
 );
 
 const App: React.FC = () => {
-  const [gameState, setGameState] = useState<'invite' | 'game' | 'ai'>('invite');
+  const [gameState, setGameState] = useState<'invite' | 'game' | 'wish'>('invite');
   const [isConfettiActive, setIsConfettiActive] = useState(false);
   const [isFireworksActive, setIsFireworksActive] = useState(false);
 
@@ -56,31 +56,33 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#00ADEF] via-[#E6F7FF] to-[#F7941D] text-gray-800 relative overflow-hidden font-sans">
+    <div className="min-h-screen bg-gradient-to-b from-blue-300 via-pink-100 to-yellow-100 text-gray-800 relative overflow-hidden font-sans">
 
-      {/* Sfondo animato con nuvole e palloncini */}
-      <div className="absolute top-10 left-[10%] w-64 h-32 bg-white/40 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute top-40 left-[70%] w-80 h-40 bg-white/40 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
-
-      <FloatingBalloon color="bg-[#00ADEF]" delay="0s" left="5%" />
-      <FloatingBalloon color="bg-[#F7941D]" delay="3s" left="20%" />
-      <FloatingBalloon color="bg-white" delay="5s" left="35%" />
-      <FloatingBalloon color="bg-[#00ADEF]" delay="1.5s" left="50%" />
-      <FloatingBalloon color="bg-[#F7941D]" delay="7s" left="65%" />
-      <FloatingBalloon color="bg-white" delay="4s" left="80%" />
-      <FloatingBalloon color="bg-[#00ADEF]" delay="0.8s" left="92%" />
+      {/* Sfondo animato con palloncini colorati carichi - Distribuzione migliorata e più centrale */}
+      <FloatingBalloon color="bg-red-600" delay="0s" left="5%" />
+      <FloatingBalloon color="bg-blue-600" delay="3s" left="20%" />
+      <FloatingBalloon color="bg-pink-500" delay="5s" left="35%" />
+      <FloatingBalloon color="bg-yellow-500" delay="1.5s" left="50%" />
+      <FloatingBalloon color="bg-orange-500" delay="7s" left="65%" />
+      <FloatingBalloon color="bg-purple-600" delay="4s" left="80%" />
+      <FloatingBalloon color="bg-green-600" delay="0.8s" left="92%" />
+      <FloatingBalloon color="bg-teal-500" delay="2.5s" left="28%" />
+      <FloatingBalloon color="bg-indigo-600" delay="6s" left="60%" />
+      <FloatingBalloon color="bg-rose-500" delay="1s" left="42%" />
+      <FloatingBalloon color="bg-amber-500" delay="4.5s" left="55%" />
+      <FloatingBalloon color="bg-cyan-500" delay="8s" left="48%" />
 
       <main className="max-w-md mx-auto px-4 py-8 flex flex-col items-center justify-center min-h-screen relative z-10">
         <header className="text-center mb-6 z-20 animate-in fade-in slide-in-from-top duration-1000">
-          <h1 className="text-5xl font-refined text-[#004A99] drop-shadow-md mb-2 leading-tight">
-            Leonardo & Bluey!
+          <h1 className="text-5xl font-refined font-black text-blue-700 drop-shadow-md mb-2 leading-tight">
+            Compleanno di Leonardo
           </h1>
-          <div className="bg-white/70 backdrop-blur-md px-10 py-2 rounded-full inline-block shadow-lg border-2 border-[#00ADEF] transform -rotate-1">
-            <p className="text-xl font-bold text-[#F7941D] tracking-tight">Il 5° Compleanno Megagalattico!</p>
+          <div className="bg-white/50 backdrop-blur-md px-10 py-2 rounded-full inline-block shadow-lg border-2 border-white/80 transform -rotate-1">
+            <p className="text-xl font-bold text-pink-600 tracking-tight">8 Febbraio — Mattina</p>
           </div>
         </header>
 
-        <div className="w-full bg-white/95 backdrop-blur-2xl rounded-[4rem] shadow-[0_30px_80px_rgba(0,173,239,0.2)] p-6 relative z-10 border-4 border-white">
+        <div className="w-full bg-white/90 backdrop-blur-2xl rounded-[4rem] shadow-[0_30px_80px_rgba(0,0,0,0.15)] p-6 relative z-10 border-4 border-white">
           {gameState === 'invite' && (
             <div className="space-y-6 animate-in fade-in slide-in-from-bottom-8 duration-700">
               <InvitationCard
@@ -93,27 +95,19 @@ const App: React.FC = () => {
 
               <RSVPForm />
 
-              <div className="grid grid-cols-2 gap-4 pt-2">
+              <div className="flex justify-center pt-2">
                 <button
                   onClick={() => setGameState('game')}
-                  className="bg-gradient-to-br from-yellow-300 to-orange-400 hover:from-yellow-400 hover:to-orange-500 text-white font-black py-5 px-2 rounded-[2.5rem] shadow-xl transition-all hover:scale-105 active:scale-95 flex flex-col items-center gap-1 border-b-4 border-orange-600"
+                  className="bg-gradient-to-br from-yellow-300 to-orange-400 hover:from-yellow-400 hover:to-orange-500 text-white font-black py-5 px-12 rounded-[2.5rem] shadow-xl transition-all hover:scale-105 active:scale-95 flex flex-col items-center gap-1 border-b-4 border-orange-600 w-full sm:w-auto"
                 >
                   <Star className="fill-current animate-pulse" size={24} />
                   <span className="text-sm">GIOCHIAMO!</span>
-                </button>
-                <button
-                  onClick={() => setGameState('ai')}
-                  className="bg-gradient-to-br from-[#00ADEF] to-[#004A99] hover:from-[#004A99] hover:to-[#002B59] text-white font-black py-5 px-2 rounded-[2.5rem] shadow-xl transition-all hover:scale-105 active:scale-95 flex flex-col items-center gap-1 border-b-4 border-blue-900"
-                >
-                  <Sparkles className="animate-bounce" size={24} />
-                  <span className="text-sm text-center">AUGURIO IA</span>
                 </button>
               </div>
             </div>
           )}
 
-          {gameState === 'game' && <BlueyRunner onBack={() => setGameState('invite')} />}
-          {gameState === 'ai' && <AIWishGenerator onBack={() => setGameState('invite')} />}
+          {gameState === 'game' && <MiniGame onBack={() => setGameState('invite')} />}
         </div>
 
         <footer className="mt-12 text-center pb-8">
