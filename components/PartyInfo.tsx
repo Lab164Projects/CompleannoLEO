@@ -13,7 +13,7 @@ export const PartyInfo: React.FC<{ logoUrl?: string }> = ({ logoUrl }) => {
         </div>
         <div>
           <h3 className="text-xs font-black text-blue-400 uppercase">Quando</h3>
-          <p className="font-bold text-gray-800">Sabato 8 Febbraio</p>
+          <p className="font-bold text-gray-800">Domenica 8 Febbraio</p>
         </div>
       </div>
 
